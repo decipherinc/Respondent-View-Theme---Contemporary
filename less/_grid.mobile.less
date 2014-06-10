@@ -1,0 +1,35 @@
+/* 'Grid' question-type (prefix: -grid), Mobile-first CSS */
+/* Loading order: Respondent View > Question Types (YOU ARE HERE) > Theme > Survey Overrides */
+
+/* Functionality */
+.-grid, .-grid tbody, .-grid-row, .-grid-cell {
+    display: block;
+    word-wrap: break-word;
+}
+.lte-ie9 .-grid, .lte-ie9 .-grid tbody, .lte-ie9 .-grid-row, .lte-ie9 .-grid-cell {
+    float: left;
+    clear: left;
+    width: 100%;
+}
+.-grid-cell-unused, .-grid-row-col-legend, .-grid-group-by-col .-grid-cell-row-legend, .-grid-multi-col .-grid-cell-row-legend, .-grid-multi-col .-grid-cell-seperator {
+    display: none;
+}
+.-grid-group-by-col .-grid-row-col-legend {
+    display: block;
+}
+.-grid-supports-css-table .-grid-text .-grid-text-control-wrapper {
+    display: table;
+    width: 100%;
+}
+.-grid-supports-css-table .-grid-text-control-prefix, .-grid-supports-css-table .-grid-text-control-input, .-grid-supports-css-table .-grid-text-control-mobile-legend {
+    display: table-cell;
+    vertical-align: middle;
+}
+.-grid-multi-column .-grid-cell-seperator, .-grid-multi-column .-grid-cell-legend {
+    display: none;
+}
+
+/* Misc */
+.-grid-cell-control, .-grid-multi-col .-grid-cell-legend, .-grid-input, .-grid-label {
+    cursor: pointer;
+}

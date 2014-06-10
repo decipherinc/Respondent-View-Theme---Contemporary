@@ -1,0 +1,41 @@
+/* 'Grid' question-type (prefix: -grid), Desktop CSS */
+/* Loading order: Respondent View > Question Types (YOU ARE HERE) > Theme > Survey Overrides */
+
+/* Notes: This file supplies the mixin used by grid.auto-optimize.desktop and grid.force-desktop.desktop */
+/* Formatting of grids (colors, spacing, etc) is handled at the Theme level. */
+
+.-grid-desktop-css() {
+
+  /* Functionality */
+  display: table;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+
+  & tbody {
+      display: table-row-group;
+  }
+  .-grid-row {
+      display: table-row;
+  }
+  .-grid-cell {
+      display: table-cell;
+      vertical-align: middle;
+  }
+  .-grid-mobile-legend {
+      display: none;
+  }
+  .-grid-single-col .-grid-mobile-legend {
+      display: inline;
+  }
+  .lte-ie9 &, .lte-ie9 & tbody, .lte-ie9 & .-grid-row, .lte-ie9 & .-grid-cell {
+      float: none;
+      clear: none;
+  }
+  .lte-ie9 & .-grid-cell {
+      width: auto;
+  }
+
+  .-grid-span_1 { width: 4.16666666667%; } .-grid-span_2 { width: 8.33333333333%; } .-grid-span_3 { width:12.5%; } .-grid-span_4 { width: 16.6666666667%; } .-grid-span_5 { width: 20.8333333333%; } .-grid-span_6 { width: 25%; } .-grid-span_7 { width: 29.1666666667%; } .-grid-span_8 { width: 33.3333333333%; } .-grid-span_9 { width: 37.5%; } .-grid-span_10 { width: 41.6666666667%; } .-grid-span_11 { width: 45.8333333333%; } .-grid-span_12 { width: 50%; } .-grid-span_13 { width: 54.1666666667%; } .-grid-span_14 { width: 58.3333333333%; } .-grid-span_15 { width: 62.5%; } .-grid-span_16 { width: 66.6666666667%; } .-grid-span_17 { width: 70.8333333333%; } .-grid-span_18 { width: 75%; } .-grid-span_19 { width: 79.1666666667%; } .-grid-span_20 { width: 83.3333333333%; } .-grid-span_21 { width: 87.5%; } .-grid-span_22 { width: 91.6666666667%; } .-grid-span_23 { width: 95.8333333333%; } .-grid-span_24 { width: 100%; }
+
+}

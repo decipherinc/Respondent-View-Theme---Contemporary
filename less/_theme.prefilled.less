@@ -1,0 +1,443 @@
+/* Theme File */
+/* Place your theme variables and standard-question formatting here */
+
+/* Loading order: Respondent View > Question Types > Theme (YOU ARE HERE) > Survey Overrides */
+
+@theme-primary-font-stack: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica Neue, Helvetica, Arial, "Lucida Grande", sans-serif;
+@theme-color-1: #dddddd;
+@theme-color-2: #fff;
+@theme-color-3: #454545;
+@theme-color-4: #696a69;
+@theme-color-5: #ffcc66;
+@theme-color-6: #f80;
+@theme-color-7: #ba0000;
+
+@theme-bg: @theme-color-2;
+@theme-fg: @theme-color-2;
+@theme-text: @theme-color-3;
+@theme-border: @theme-color-1;
+@theme-interface-button: @theme-color-4;
+@theme-question-button: @theme-color-5;
+@theme-question-button-selected: @theme-color-6;
+@theme-error: @theme-color-7;
+
+@theme-page-bg-color: @theme-bg;
+@theme-survey-fg-color: @theme-fg;
+@theme-survey-border-color: @theme-border;
+@theme-grid-lines-color: darken(@theme-border, 20%);
+@theme-row-bg-color: #ddd;
+@theme-row-bg-color-alt: #eee;
+@theme-error-text-color: @theme-error;
+@theme-error-highlight-color: @theme-bg;
+@theme-question-text-color: @theme-text;
+@theme-question-font-stack: @theme-primary-font-stack;
+@theme-instruction-text-color: @theme-text;
+@theme-instruction-font-stack: @theme-primary-font-stack;
+@theme-comment-text-color: @theme-text;
+@theme-comment-font-stack: @theme-primary-font-stack;
+@theme-answer-text-color: @theme-text;
+@theme-answer-font-stack: @theme-primary-font-stack;
+@theme-answer-bg-color-hover: lighten(@theme-border, 10%);
+@theme-interface-btn-bg-color: @theme-interface-button;
+@theme-interface-btn-text-color: @theme-survey-fg-color;
+@theme-interface-btn-bg-color-hover: lighten(@theme-interface-button, 10%);
+@theme-interface-btn-bg-color-disabled: lighten(@theme-interface-button, 40%);
+@theme-question-btn-bg-color: @theme-question-button;
+@theme-question-btn-text-color: @theme-survey-fg-color;
+@theme-question-btn-bg-color-hover: darken(@theme-question-button, 20%);
+@theme-progress-empty-bg-color: @theme-fg;
+@theme-progress-fill-bg-color: @theme-border;
+@theme-progress-text-color: darken(@theme-border, 30%);
+@theme-progress-font-stack: @theme-primary-font-stack;
+@theme-progress-stroke-color: @theme-border;
+@theme-footer-color: @theme-text;
+@theme-footer-color-hover: darken(@theme-text, 20%);
+@theme-footer-font-stack: @theme-primary-font-stack;
+
+// ==============================================================
+
+/* 'Respondent View' formatting */
+
+  /** Mobile-first formatting **/
+
+    /*** Reset ***/
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        border: 0;
+        outline: 0;
+    }
+    article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+        display: block;
+    }
+    sub,sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+    }
+    sup {
+        top: -0.5em;
+        vertical-align: text-top;
+    }
+    sub {
+        bottom: -0.25em;
+        vertical-align: text-bottom;
+    }
+    .clearfix:before, .clearfix:after {
+      content:"\0020";
+      display:block;
+      height:0;
+      overflow:hidden
+    }
+    .clearfix:after {
+      clear:both
+    }
+    .clearfix {
+      zoom:1
+    }
+
+    /*** General Survey Elements ***/
+    body {
+        font-family: @theme-question-font-stack;
+        font-size: 13px;
+        color: @theme-question-text-color;
+        line-height: 1.5em;
+        background: @theme-page-bg-color;
+    }
+    .-question {
+        padding-bottom: 1em;
+    }
+    .-question-text {
+        font-family: @theme-question-font-stack;
+        font-size: 1.35em;
+        color: @theme-question-text-color;
+        padding: 3em 0 1.4em;
+        font-weight: normal;
+    }
+    .-question-instructions {
+      font-family: @theme-instruction-font-stack;
+      color: @theme-instruction-text-color;
+    }
+    .-comment {
+      font-family: @theme-comment-font-stack;
+      color: @theme-comment-text-color;
+    }
+    #-survey-content {
+      background: @theme-survey-fg-color;
+      border: 1px solid @theme-survey-border-color;
+      margin: 0 auto;
+      max-width: 960px;
+      padding: 0.5em;
+    }
+    .logo img {
+        max-width: 200px;
+        width: 100%;
+    }
+
+    #progress {
+      float: right;
+      background: @theme-progress-empty-bg-color;
+      border: 1px solid @theme-progress-stroke-color;
+      width: 100%;
+      height: 1em;
+      max-width: 150px;
+    }
+    #progress-fill {
+      background: @theme-progress-fill-bg-color;
+      width: 0%;
+      height: 100%;
+      display: block;
+      text-align: center;
+    }
+    #progress-text {
+      color: @theme-progress-text-color;
+      font-family: @theme-progress-font-stack;
+      float: right;
+      line-height: 1em;
+      margin-left: 0.75em;
+    }
+
+    #footer {
+      color: @theme-footer-color;
+      font-family: @theme-footer-font-stack;
+      text-align: center;
+      padding-bottom: 2em;
+    }
+    #footer a {
+      color: inherit;
+    }
+    #footer a:hover {
+      color: @theme-footer-color-hover;
+    }
+    .error {
+      /*
+      Available Vars:
+      @theme-error-text-color
+      @theme-error-highlight-color
+      */
+    }
+
+    /*** Buttons ***/
+    .button {
+      -webkit-apperance: none;
+      cursor: pointer;
+      padding: 0.5em;
+    }
+    .button-interface {
+      background: @theme-interface-btn-bg-color;
+      color: @theme-interface-btn-text-color;
+      padding: 3px 9px;
+      border: 0;
+    }
+    .button-interface:hover {
+      background: @theme-interface-btn-bg-color-hover;
+    }
+    .button-interface.disabled, .button-question.disabled:hover {
+      background: @theme-interface-btn-bg-color-disabled;
+    }
+    .button-question {
+      background: @theme-question-btn-bg-color;
+      color: @theme-question-btn-text-color;
+      border: 1px solid @theme-question-btn-text-color;
+      padding: 10px 13px;
+      font-size: 18px;
+    }
+    .button-question:hover {
+      background: @theme-question-btn-bg-color-hover;
+    }
+  /** End mobile-first formatting **/
+
+  /** Desktop-mode formatting **/
+    @media (min-width: 768px) {
+      body {
+          padding: 0;
+      }
+      #-survey-content {
+          margin: 1.5em auto;
+          padding: 18px 15px;
+          width: 95%;
+      }
+    }
+  /** End desktop-mode formatting **/
+
+/* End Respondent View */
+
+// ==============================================================
+
+/* 'Grid' question-type (prefix: -grid) */
+
+  /** Mobile-first formatting **/
+    /*** Spacing and Widths ***/
+    .-grid-label {
+      padding: 0.25em 0 0.25em 0.25em;
+    }
+    .-grid-cell-control-group {
+      padding-left: 3.5em;
+    }
+    .-grid-cell-row-legend-group {
+      margin: 0;
+      padding-top: 1em;
+      padding-left: 0.25em;
+    }
+    .-grid-cell-row-legend-grouped,
+    .-grid-group-by-col .-grid-cell-col-legend-grouped {
+      padding: 0.25em 0.25em 0.25em 1em;
+    }
+    .-grid-cell-control-grouped {
+      padding-left: 2.5em;
+    }
+    .-grid-cell-row-legend,
+    .-grid-group-by-col .-grid-cell-col-legend {
+      padding: 0.5em 0.25em;
+    }
+    .-grid-mobile-legend-group {
+      padding: 0 0 0 2em;
+      margin: 0;
+    }
+    .-grid-cell-seperator {
+      height: 7px;
+    }
+    .-grid-cell-row-seperator {
+      height: 7px;
+      line-height: 7px;
+    }
+    .-grid-supports-css-table .-grid-text-control-prefix,
+    .-grid-supports-css-table .-grid-text-control-input,
+    .-grid-supports-css-table .-grid-text-control-mobile-legend {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+    .-grid-supports-css-table .-grid-text-control-prefix {
+      width: 1em;
+    }
+    .-grid-supports-css-table .-grid-text-control-input {
+      width: 5em;
+      padding-right: 0.25em;
+    }
+    .-grid-supports-css-table .-grid-text-control-input .-grid-input-text {
+      width: 100%;
+    }
+    .-grid-supports-css-table .-grid-text-control-mobile-legend {
+      padding-left: 0.5em;
+    }
+
+    /*** Borders ***/
+    .-grid {
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+    }
+    .-grid-cell-legend, .-grid-cell-control, .-grid-mobile-legend-group {
+        border-right-width: 1px;
+        border-left-width: 1px;
+        border-top-width: 1px;
+        border-right-style: solid;
+        border-left-style: solid;
+        border-top-style: solid;
+    }
+    .-grid-cell-seperator, .-grid-cell-row-seperator {
+        border-top-width: 1px;
+        border-top-style: solid;
+    }
+
+    /*** Colors ***/
+    .-grid {
+        color: @theme-answer-text-color;
+        font-family: @theme-answer-font-stack;
+    }
+    .-grid-cell-legend, .-grid-row-group {
+        background: @theme-row-bg-color;
+    }
+    .-grid, .-grid-cell, .-grid-mobile-legend {
+        border-color: @theme-grid-lines-color;
+    }
+    .-grid-cell-control, .-grid-mobile-legend-group {
+        background: @theme-row-bg-color;
+    }
+    .-grid-cell-control:hover {
+        background: @theme-answer-bg-color-hover;
+    }
+
+    /*** Misc ***/
+    .-grid-cell-col-legend-group {
+        font-weight: bold;
+    }
+
+  /** End mobile-first formatting **/
+
+  /** Desktop-mode formatting **/
+
+    // The contents of this function copy into -grid-auto-optimize and -grid-force-desktop further down.
+    .-grid-desktop-css() {
+
+      /*** Spacing and Widths ***/
+      .-grid-label {
+          padding-left: 0;
+      }
+      .-grid-input-radio, .-grid-input-checkbox {
+          margin: 0.5em;
+      }
+      .-grid-cell-control-grouped, .-grid-cell-control-group, .-grid-cell-col-legend-group {
+          padding: 0;
+      }
+      .-grid-cell-row-legend-group {
+          padding-top: 0.5em;
+      }
+      .-grid-cell-seperator {
+          height: auto;
+          width: 7px;
+      }
+      &.-grid-multi-col {
+          table-layout: fixed;
+      }
+      &.-grid-multi-col .-grid-cell-control {
+          width: 6em;
+      }
+      &.-grid-multi-col .-grid-cell-row-legend {
+        padding: 0;
+      }
+      &.-grid-multi-col .-grid-cell-row-legend .-grid-label {
+        padding: 0 0.25em;
+      }
+
+      /*** Borders ***/
+      border-width: 0;
+
+      .-grid-cell-legend, .-grid-cell-control, .-grid-mobile-legend-group {
+          border-width: 1px;
+          border-style: solid;
+          border-color: @theme-grid-lines-color;
+      }
+      .-grid-cell-seperator {
+          border-top-width: 0;
+      }
+
+      /*** Colors ***/
+      .-grid-row-odd .-grid-cell-control {
+          background: @theme-row-bg-color;
+      }
+      .-grid-row-even .-grid-cell-control {
+          background: @theme-row-bg-color-alt;
+      }
+      .-grid-cell.-grid-cell-control:hover {
+          background: @theme-answer-bg-color-hover;
+      }
+
+      /*** Misc ***/
+      .-grid-cell-col-legend, .-grid-cell-control, &.-grid-group-by-col .-grid-cell-col-legend {
+          text-align: center;
+      }
+      &.-grid-group-by-col .-grid-cell-row-legend {
+          text-align: left;
+      }
+    }
+
+    .-grid-auto-optimize {
+      @media (min-width: 768px) {
+      .-grid-desktop-css();
+      }
+    }
+
+    .-grid-force-desktop {
+      .-grid-desktop-css();
+    }
+
+  /** End desktop-mode formatting **/
+
+/* End grid */
+
+
+
+/* 'Form Image Replacement' feature for grids (prefix: -fir) */
+
+  /** Mobile-first formatting **/
+    .-fir-svg {
+      width: 20px;
+      height: 20px;
+    }
+    .-fir-base {
+      fill: #aaa;
+    }
+    .-fir-bg {
+      fill: #fff;
+    }
+    .-fir-selected {
+      fill: transparent;
+    }
+    .-fir-svg-selected .-fir-selected {
+      fill: #2BBDB9;
+    }
+  /** End mobile-first formatting **/
+
+  /** Desktop-mode formatting **/
+    .-grid-label.-fir-hover .-fir-selected,
+    .-grid-label.-fir-focus .-fir-selected,
+    .-grid-label:hover .-fir-selected {
+      fill: #C5D600;
+    }
+    .-grid-label.-fir-svg-selected .-fir-selected {
+      fill: #2BBDB9;
+    }
+  /** End desktop-mode formatting **/
+
+/* End FIR */

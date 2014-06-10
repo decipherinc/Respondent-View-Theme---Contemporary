@@ -1,0 +1,422 @@
+// Theme: Contemporary
+// Loading order: Respondent View > Grid & Question Types > Theme (YOU ARE HERE) > Survey Overrides
+
+// *** VARIABLES
+// colors
+@primary-font-stack: Arial,"MS Trebuchet",sans-serif;
+@color-1: #EFEFEF;
+@color-2: #ffffff;
+@color-3: #454545;
+@color-4: #696a69;
+@color-5: #ffcc66;
+@color-6: #f80;
+@color-7: #ba0000;
+
+@bg: @color-1;
+@fg: @color-2;
+@text: @color-3;
+@border: darken(@color-1, 10);
+@interface-button: @color-4;
+@question-button: @color-5;
+@question-button-selected: @color-6;
+@error: @color-7;
+
+// need fir.. maybe add above?
+
+@bg-color: @bg;
+@fg-color: @fg;
+@border-color: @border;
+@progress-empty-bg-color: @fg;
+@progress-fill-bg-color: @border;
+@progress-text-color: darken(@border, 30%);
+@progress-font-stack: @primary-font-stack;
+@progress-stroke-color: @border;
+@question-text-color: @text;
+@question-font-stack: @primary-font-stack;
+@comment-text-color: @text;
+@comment-font-stack: @primary-font-stack;
+@instruction-text-color: @text;
+@instruction-font-stack: @primary-font-stack;
+@row-bg-color: @bg;
+@row-bg-color-alt: #eee;
+@answer-text-color: @text;
+@answer-font-stack: @primary-font-stack;
+@answer-bg-color-hover: lighten(@border, 10%);
+@interface-btn-bg-color: @interface-button;
+@question-btn-bg-color: @question-button;
+@question-btn-text-color: @fg-color;
+@question-btn-bg-color-hover: darken(@question-button, 20%);
+@interface-btn-text-color: @fg-color;
+@interface-btn-bg-color-hover: lighten(@interface-button, 10%);
+@interface-btn-bg-color-disabled: lighten(@interface-button, 40%);
+@error-text-color: @error;
+@error-highlight-color: @bg;
+@footer-color: @text;
+@footer-color-hover: darken(@text, 20%);
+@footer-font-stack: @primary-font-stack;
+
+// font sizes
+@mobile-font-size: 14px;
+@desktop-font-size: 14px;
+
+// media query
+@breakpoint: 768px;
+@desktop: ~"(min-width: @{breakpoint})";
+
+// desktop view max width
+@max-survey-content-width: 960px;
+
+
+// Contemporary theme specific
+@contemporary-border-radius: 5px;
+@contemporary-fg-shadow-amount: 15px;
+@contemporary-fg-shadow-color: #999;
+
+// ==============================================================
+// CONTEMPORARY THEME
+// *** Reset (not theme specific)
+  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+      margin: 0;
+      padding: 0;
+      font-size: 100%;
+      border: 0;
+      outline: 0;
+  }
+  article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+      display: block;
+  }
+  th {
+    font-weight: normal;
+    text-align: left;
+  }
+  sub,sup {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+  }
+  sup {
+      top: -0.5em;
+      vertical-align: text-top;
+  }
+  sub {
+      bottom: -0.25em;
+      vertical-align: text-bottom;
+  }
+  .clearfix {
+    zoom: 1;
+    &:after {
+      clear: both;
+    }
+    &:before, &:after {
+      content: "\0020";
+      display: block;
+      height: 0;
+      overflow: hidden;
+    }
+  }
+// *** end reset
+
+// *** General Survey Elements
+html {
+  font-family: @primary-font-stack;
+  font-size: @mobile-font-size;
+  @media @desktop {
+    font-size: @desktop-font-size;
+  }
+}
+
+body {
+  background-color: @bg-color;
+  color: @text;
+  @media @desktop {
+    padding: 1rem 0;
+  }
+}
+
+#-survey-content {
+  margin: 0 auto;
+  padding: 1em 5%;
+  background-color: @fg-color;
+  @media @desktop {
+    padding: 1em 2%;
+    max-width: @max-survey-content-width;
+    -webkit-border-radius: @contemporary-border-radius;
+    border-radius: @contemporary-border-radius;
+    -webkit-box-shadow: 0px 0px @contemporary-fg-shadow-amount 0px @contemporary-fg-shadow-color;
+    box-shadow: 0px 0px @contemporary-fg-shadow-amount 0px @contemporary-fg-shadow-color;
+  }
+}
+
+h1 {
+  font-weight: 400;
+}
+h2 {
+  font-weight: 400;
+}
+h3 {
+  font-weight: 400;
+}
+h4 {
+  font-weight: 400;
+}
+h5 {
+  font-weight: 400;
+}
+h6 {
+  font-weight: 400;
+}
+
+.logo {
+  width: 100%;
+  img {
+    max-width: 80%;
+    height: auto;
+    @media @desktop {
+      max-width: 40%;
+    }
+  }
+}
+
+#progress {
+  width: 40px;
+  height: 10px;
+  #progress-box {
+   float: right;
+   background: @progress-empty-bg-color;
+   border: 1px solid @progress-stroke-color;
+   width: 100%;
+   height: 1em;
+   max-width: 150px;
+  }
+  #progress-fill {
+   background: @progress-fill-bg-color;
+   width: 0%;
+   height: 100%;
+   display: block;
+   text-align: center;
+  }
+  #progress-text {
+   color: @progress-text-color;
+   float: right;
+   line-height: 1em;
+   margin-left: 0.75em;
+  }
+  @media @desktop {
+  }
+}
+
+.-question {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  .-question-text {
+    color: @question-text-color;
+    font-size: 1.4em;
+    line-height: 2em;
+  }
+  .-question-instructions {
+    font-family: @instruction-font-stack;
+    color: @instruction-text-color;
+    font-size: 0.8em;
+    margin-left: 0.5em;
+    margin-bottom: 0.8rem;
+  }
+}
+
+
+
+
+
+.button {
+  -webkit-apperance: none;
+  cursor: pointer;
+  padding: 0.5em;
+}
+
+.button-question {
+  background: @question-btn-bg-color;
+  color: @question-btn-text-color;
+  border: 1px solid @question-btn-text-color;
+  &:hover {
+    background: @question-btn-bg-color-hover;
+  }
+  .disabled {
+
+  }
+}
+
+.button-interface {
+  font-size: 1rem;
+  background: @interface-btn-bg-color;
+  color: @interface-btn-text-color;
+  padding: 0.7em 1em;
+  border: 0;
+  box-shadow: 1px 1px 2px 0px lighten(@interface-btn-bg-color, 20);
+  &:hover {
+    background: @interface-btn-bg-color-hover;
+  }
+  .disabled {
+
+  }
+}
+
+
+
+
+#footer {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+// *** end general survey elements
+
+// *** 'Grid' question styling (prefix: -grid)
+// !!! Grid styling must be done seperately for mobile and desktop so that the appropriate styling is used if the user "forces desktop" or "forces mobile" on a question.
+
+  // ** Mobile-first grid styling
+    // Reset (not theme specific)
+      // Border Colors
+      // !!! Below you can read about the method used for colapsing double borders between cells. Here you can set the border color easily.
+      .-grid, .-grid-cell, .-grid-mobile-legend {
+          border-color: @border-color;
+      }
+      // Border Colapsing
+      // !!! Because of the way we're building our tables, we can't just colapse borders. This adds borders to top only on each cell, then adds to the bottom of the entire grid.
+      .-grid {
+          border-bottom-width: 1px;
+          border-bottom-style: solid;
+      }
+      .-grid-cell-legend, .-grid-cell-control, .-grid-mobile-legend-group {
+          border-right-width: 1px;
+          border-left-width: 1px;
+          border-top-width: 1px;
+          border-right-style: solid;
+          border-left-style: solid;
+          border-top-style: solid;
+      }
+      .-grid-cell-seperator, .-grid-cell-row-seperator {
+          border-top-width: 1px;
+          border-top-style: solid;
+      }
+      // Text Input Widths
+      // !!! These fixed widths make it so on mobile, when text is next to an input and is forced to wrap, it will not wrap below the input, but to the right of it.
+      .-grid-supports-css-table .-grid-text-control-prefix {
+        width: 1em;
+      }
+      .-grid-supports-css-table .-grid-text-control-input {
+        width: 5em;
+      }
+      .-grid-supports-css-table .-grid-text-control-input .-grid-input-text {
+        width: 100%;
+      }
+    // end reset
+
+    // Theme specific mobile-first grid styling
+
+      .-grid-cell-legend {
+        background-color: @bg-color;
+        padding: 0.5rem;
+        &.-grid-cell-row-legend-grouped {
+          padding-left: 1em;
+        }
+      }
+      .-grid-cell-row-legend-group {
+        font-size: 1.4em;
+        background-color: lighten(@border-color, 5);
+      }
+      .-grid-cell-control { // cells with inputs
+        padding: 0.7rem;
+        svg {
+          margin-right: 0.5em;
+          margin-left: 0.5em;
+        }
+        &.-grid-cell-control-grouped {
+          padding-left: 1.4em;
+        }
+        .-grid-text-control-wrapper {
+          padding-left: 1.4em;
+        }
+      }
+      .-grid-mobile-legend-group {
+
+      }
+
+    // end theme mobile-first grid styling
+  // ** End mobile-first styling
+
+  // ** Desktop grid styling
+    .-grid-desktop-css() { // The contents of this function copy into -grid-auto-optimize and -grid-force-desktop further down.
+      // Reset (not theme specific)
+      // !!! This resets border styling applied from mobile-first styling above, which compensates for lack of border colapsing on div tables.
+        border-width: 0;
+        .-grid-cell-legend, .-grid-cell-control, .-grid-mobile-legend-group {
+            border-width: 1px;
+            border-style: solid;
+        }
+        .-grid-cell-seperator {
+            border-top-width: 0;
+        }
+      // end reset
+      
+      // Theme specific desktop grid styling
+        .-grid-cell-legend {
+        }
+
+        .-grid-cell-control {
+          text-align: center;
+          &:hover, &:focus, &:active {
+            background-color: @answer-bg-color-hover;
+          }
+        }
+      // end theme desktop grid styilng
+    } // end -grid-desktop-css
+
+    // ******** MUST HAVE (for forcing desktop / mobile)
+      .-grid-auto-optimize {
+        @media @desktop {
+          .-grid-desktop-css();
+        }
+      }
+      .-grid-force-desktop {
+        .-grid-desktop-css();
+      }
+    // ********
+  // ** end desktop grid styling
+// *** end 'Grid' question styling
+
+// *** 'Form Image Replacement' (prefix: -fir)
+  // ** Mobile-first formatting
+    .-grid-cell-control, .-grid-multi-select tbody tr .-grid-cell-legend {
+      // Must have for clickable cells with padding. Cells trigger the input.
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .-fir-svg {
+      width: 20px;
+      height: 20px;
+    }
+    .-fir-base {
+      fill: #aaa;
+    }
+    .-fir-bg {
+      fill: #fff;
+    }
+    .-fir-selected {
+      fill: transparent;
+    }
+    .-fir-svg-selected .-fir-selected {
+      fill: #2BBDB9;
+    }
+  // ** End mobile-first formatting
+
+  // ** Desktop-mode formatting
+    .-grid-cell-control-hover .-fir-selected,
+    .-fir-hover .-fir-selected,
+    .-fir-focus .-fir-selected {
+      fill: #C5D600;
+    }
+    .-fir-svg-selected .-fir-selected {
+      fill: #2BBDB9;
+    }
+  // ** End desktop-mode formatting
+// End FIR 
