@@ -116,9 +116,8 @@
 
         // FIR functionality.
         if (!isFeaturephone) {
-            var t;
             $('input.-grid-input-radio').after('<svg class="-fir-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 0C4.5 0 0 4.5 0 10c0 5.5 4.5 10 10 10s10-4.5 10-10C20 4.5 15.5 0 10 0z M10 19c-5 0-9-4-9-9 c0-5 4-9 9-9s9 4 9 9C19 15 15 19 10 19z" class="-fir-base"/><circle cx="10" cy="10" r="9" class="-fir-bg"/><circle cx="10" cy="10" r="7" class="-fir-selected"/></svg>').change(function() {
-                t = $(this);
+                var t = $(this);
                 $('input[name="' + t.attr("name") + '"]').parent().removeClass('-fir-svg-selected');
                 t.parent().addClass('-fir-svg-selected');
             }).focus(function() {
@@ -129,7 +128,7 @@
             $('input.-grid-input-radio:checked').parent().addClass('-fir-svg-selected');
 
             $('input.-grid-input-checkbox').after('<svg class="-fir-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M15.8,0H3.9C1.8,0,0,2,0,4.1V16c0,2.2,1.8,4,3.9,4h11.8c2.2,0,4.2-1.8,4.2-4V4.1C20,2,18,0,15.8,0z M19,16 c0,1.6-1.6,3-3.2,3H3.9C2.3,19,1,17.7,1,16V4.1C1,2.5,2.3,1,3.9,1h11.8C17.4,1,19,2.5,19,4.1V16z" class="-fir-base"/><path d="M19,16c0,1.6-1.6,3-3.2,3H3.9C2.3,19,1,17.7,1,16V4.1C1,2.5,2.3,1,3.9,1h11.8C17.4,1,19,2.5,19,4.1V16z" class="-fir-bg"/><polygon points="9.1,16.3 2.5,11 4.1,9 8.7,12.6 15.6,3.7 17.7,5.2 " class="-fir-selected"/></svg>').change(function() {
-                t = $(this);
+                var t = $(this);
                 if (t.is(":checked")) {
                     t.parent().addClass('-fir-svg-selected');
                 } else {

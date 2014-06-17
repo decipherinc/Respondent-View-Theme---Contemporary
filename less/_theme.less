@@ -2,14 +2,15 @@
 // Loading order: Respondent View > Grid & Question Types > Theme (YOU ARE HERE) > Survey Overrides
 
 // *** VARIABLES
-// colors
+// ** Colors
+// must haves for DQs
 @primary-font-stack: Arial,"MS Trebuchet",sans-serif;
 @color-1: #EFEFEF;
 @color-2: #ffffff;
 @color-3: #454545;
 @color-4: #696a69;
-@color-5: #ffcc66;
-@color-6: #f80;
+@color-5: #C5D600;
+@color-6: #2BBDB9;
 @color-7: #ba0000;
 
 @bg: @color-1;
@@ -17,47 +18,63 @@
 @text: @color-3;
 @border: darken(@color-1, 10);
 @interface-button: @color-4;
-@question-button: @color-5;
+@interface-button-selected: @color-5;
+@question-button: @color-4;
 @question-button-selected: @color-6;
 @error: @color-7;
-
-// need fir.. maybe add above?
+// end must haves
 
 @bg-color: @bg;
 @fg-color: @fg;
 @border-color: @border;
+
+@progress-font-stack: @primary-font-stack;
+@progress-text-color: @text;
 @progress-empty-bg-color: @fg;
 @progress-fill-bg-color: @border;
-@progress-text-color: darken(@border, 30%);
-@progress-font-stack: @primary-font-stack;
-@progress-stroke-color: @border;
+@progress-stroke-color: darken(@border, 15);
+
 @question-text-color: @text;
 @question-font-stack: @primary-font-stack;
+
 @comment-text-color: @text;
 @comment-font-stack: @primary-font-stack;
+
 @instruction-text-color: @text;
 @instruction-font-stack: @primary-font-stack;
+
 @row-bg-color: @bg;
 @row-bg-color-alt: #eee;
+
+@fir-base: darken(@border, 7);
+@fir-bg: @fg;
+@fir-hover: @color-5;
+@fir-selected: @color-6;
+
 @answer-text-color: @text;
 @answer-font-stack: @primary-font-stack;
 @answer-bg-color-hover: lighten(@border, 10%);
-@interface-btn-bg-color: @interface-button;
+
 @question-btn-bg-color: @question-button;
 @question-btn-text-color: @fg-color;
-@question-btn-bg-color-hover: darken(@question-button, 20%);
+@question-btn-bg-color-hover: @interface-button-selected;
+@question-btn-bg-color-disabled: lighten(@text, 60);
+
+@interface-btn-bg-color: @interface-button;
 @interface-btn-text-color: @fg-color;
-@interface-btn-bg-color-hover: lighten(@interface-button, 10%);
+@interface-btn-bg-color-hover: darken(@interface-button, 10%);
 @interface-btn-bg-color-disabled: lighten(@interface-button, 40%);
+
 @error-text-color: @error;
 @error-highlight-color: @bg;
+
 @footer-color: @text;
 @footer-color-hover: darken(@text, 20%);
 @footer-font-stack: @primary-font-stack;
 
 // font sizes
 @mobile-font-size: 14px;
-@desktop-font-size: 14px;
+@desktop-font-size: 12px;
 
 // media query
 @breakpoint: 768px;
@@ -147,67 +164,60 @@ body {
   }
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
-}
-h2 {
-  font-weight: 400;
-}
-h3 {
-  font-weight: 400;
-}
-h4 {
-  font-weight: 400;
-}
-h5 {
-  font-weight: 400;
-}
-h6 {
-  font-weight: 400;
-}
-
-.logo {
-  width: 100%;
-  img {
-    max-width: 80%;
-    height: auto;
-    @media @desktop {
-      max-width: 40%;
-    }
-  }
 }
 
 #progress {
-  width: 40px;
-  height: 10px;
+  width: 100%;
+  height: 1em;
+  margin-bottom: 1em;
   #progress-box {
-   float: right;
+   //float: left;
    background: @progress-empty-bg-color;
    border: 1px solid @progress-stroke-color;
    width: 100%;
    height: 1em;
-   max-width: 150px;
+   max-width: 87%;
   }
   #progress-fill {
    background: @progress-fill-bg-color;
    width: 0%;
    height: 100%;
    display: block;
-   text-align: center;
   }
   #progress-text {
    color: @progress-text-color;
    float: right;
    line-height: 1em;
-   margin-left: 0.75em;
+   width: 13%;
+   text-align: left;
+   padding-left: 0.5em;
   }
   @media @desktop {
+    width: 25%;
+    float: right;
+  }
+}
+
+.logo {
+  width: 100%;
+  text-align: center;
+  img {
+    max-width: 70%;
+    height: auto;
+  }
+  @media @desktop {
+    text-align: left;
+    img {
+      max-width: 40%;
+    }
   }
 }
 
 .-question {
-  margin-top: 2.5rem;
-  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
   .-question-text {
     color: @question-text-color;
     font-size: 1.4em;
@@ -222,28 +232,43 @@ h6 {
   }
 }
 
-
-
-
-
 .button {
-  -webkit-apperance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
   cursor: pointer;
   padding: 0.5em;
 }
 
-.button-question {
+.sq-atm1d-btn {
+  font-size: 1rem;
+  max-width: 100%;
+  white-space: normal;
+  padding: 0.5em 1em;
   background: @question-btn-bg-color;
   color: @question-btn-text-color;
   border: 1px solid @question-btn-text-color;
-  &:hover {
+  &.sq-atm1d-hover {
     background: @question-btn-bg-color-hover;
   }
-  .disabled {
-
+  &.sq-atm1d-disabled {
+    background: @question-btn-bg-color-disabled;
+    &:hover, &:focus, &:active {
+      background: @question-btn-bg-color-disabled;
+      cursor: not-allowed;
+    } 
+  }
+  @media @desktop {
+    font-size: 1.4rem;
   }
 }
 
+.survey-buttons {
+  text-align: center;
+  margin: 1em;
+  @media @desktop {
+    text-align: right;
+  }
+}
 .button-interface {
   font-size: 1rem;
   background: @interface-btn-bg-color;
@@ -251,7 +276,7 @@ h6 {
   padding: 0.7em 1em;
   border: 0;
   box-shadow: 1px 1px 2px 0px lighten(@interface-btn-bg-color, 20);
-  &:hover {
+  &:hover, &:focus, &:active {
     background: @interface-btn-bg-color-hover;
   }
   .disabled {
@@ -259,13 +284,13 @@ h6 {
   }
 }
 
-
-
-
 #footer {
   text-align: center;
   margin-top: 2em;
   margin-bottom: 2em;
+  a {
+    color: @text;
+  }
 }
 // *** end general survey elements
 
@@ -312,14 +337,20 @@ h6 {
 
     // Theme specific mobile-first grid styling
 
-      .-grid-cell-legend {
+      .-grid-cell-legend, .-grid-mobile-legend-group {
         background-color: @bg-color;
         padding: 0.5rem;
         &.-grid-cell-row-legend-grouped {
           padding-left: 1em;
         }
+        .-grid-multi-col & {
+          background-color: transparent;
+          &:hover, &:focus, &:active {
+            background: @answer-bg-color-hover;
+          }
+        }
       }
-      .-grid-cell-row-legend-group {
+      .-grid-cell-row-legend-group, .-grid-cell-row-legend-col-grouped {
         font-size: 1.4em;
         background-color: lighten(@border-color, 5);
       }
@@ -335,9 +366,9 @@ h6 {
         .-grid-text-control-wrapper {
           padding-left: 1.4em;
         }
-      }
-      .-grid-mobile-legend-group {
-
+        &:hover, &:focus, &:active {
+          background-color: @answer-bg-color-hover;
+        }
       }
 
     // end theme mobile-first grid styling
@@ -358,15 +389,44 @@ h6 {
       // end reset
       
       // Theme specific desktop grid styling
-        .-grid-cell-legend {
-        }
 
-        .-grid-cell-control {
+        .-grid-cell-legend, .-grid-mobile-legend-group {
+          background-color: @bg-color;
+          padding: 0.4rem 0.5rem;
+          &.-grid-cell-row-legend-grouped {
+            padding-left: 1em;
+          }
+          .-grid-multi-col & {
+            background-color: transparent;
+            &:hover, &:focus, &:active {
+              background: @answer-bg-color-hover;
+            }
+          }
+        }
+        .-grid-cell-col-legend {
           text-align: center;
+        }
+        .-grid-cell-row-legend-group, .-grid-cell-row-legend-col-grouped {
+          font-size: 1.2em;
+          background-color: lighten(@border-color, 5);
+        }
+        .-grid-cell-control { // cells with inputs
+          text-align: center;
+          padding: 0.4rem;
+          svg {
+            margin-right: 0.5em;
+            margin-left: 0.5em;
+          }
+          &.-grid-cell-control-grouped {
+            padding-left: 0;
+          }
           &:hover, &:focus, &:active {
             background-color: @answer-bg-color-hover;
           }
         }
+
+
+
       // end theme desktop grid styilng
     } // end -grid-desktop-css
 
@@ -385,6 +445,7 @@ h6 {
 
 // *** 'Form Image Replacement' (prefix: -fir)
   // ** Mobile-first formatting
+
     .-grid-cell-control, .-grid-multi-select tbody tr .-grid-cell-legend {
       // Must have for clickable cells with padding. Cells trigger the input.
       &:hover {
@@ -396,16 +457,16 @@ h6 {
       height: 20px;
     }
     .-fir-base {
-      fill: #aaa;
+      fill: @fir-base;
     }
     .-fir-bg {
-      fill: #fff;
+      fill: @fir-bg;
     }
     .-fir-selected {
       fill: transparent;
     }
     .-fir-svg-selected .-fir-selected {
-      fill: #2BBDB9;
+      fill: @fir-selected;
     }
   // ** End mobile-first formatting
 
@@ -413,10 +474,10 @@ h6 {
     .-grid-cell-control-hover .-fir-selected,
     .-fir-hover .-fir-selected,
     .-fir-focus .-fir-selected {
-      fill: #C5D600;
+      fill: @fir-hover;
     }
     .-fir-svg-selected .-fir-selected {
-      fill: #2BBDB9;
+      fill: @fir-selected;
     }
   // ** End desktop-mode formatting
 // End FIR 
