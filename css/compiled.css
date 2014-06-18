@@ -520,6 +520,17 @@ sub {
   bottom: -0.25em;
   vertical-align: text-bottom;
 }
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="number"]:hover,
+input[type="search"]:hover,
+input[type="tel"]:hover,
+input[type="time"]:hover,
+input[type="url"]:hover,
+input[type="password"]:hover,
+textarea:hover {
+  cursor: text;
+}
 .clearfix {
   zoom: 1;
 }
@@ -625,12 +636,6 @@ h6 {
 textarea {
   width: 100%;
 }
-textarea:hover {
-  cursor: text;
-}
-input[type="text"]:hover {
-  cursor: text;
-}
 .-question {
   margin-top: 1rem;
   margin-bottom: 2.5rem;
@@ -683,6 +688,9 @@ input[type="text"]:hover {
 .sq-atm1d-btn.sq-atm1d-hover {
   background-color: #c5d600;
 }
+.sq-atm1d-btn.sq-atm1d-hover:active {
+  background-color: #b7c700;
+}
 .sq-atm1d-btn.sq-atm1d-disabled {
   background-color: rgba(69, 69, 69, 0.12);
 }
@@ -691,6 +699,9 @@ input[type="text"]:hover {
 .sq-atm1d-btn.sq-atm1d-disabled:active {
   background-color: rgba(69, 69, 69, 0.12);
   cursor: not-allowed;
+}
+.sq-atm1d-btn.sq-atm1d-selected {
+  background-color: #c5d600;
 }
 @media (min-width: 768px) {
   .sq-atm1d-btn {

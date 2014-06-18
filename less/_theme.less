@@ -7,10 +7,6 @@
 @primary-font-stack: Arial,"MS Trebuchet",sans-serif;
 @color-1: #EFEFEF;
 @color-2: #ffffff;
-
-// @color-1: #000;
-// @color-2: #000;
-
 @color-3: #454545;
 @color-4: #696a69;
 @color-5: #C5D600;
@@ -123,6 +119,19 @@
       bottom: -0.25em;
       vertical-align: text-bottom;
   }
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  input[type="password"],
+  textarea {
+    &:hover {
+      cursor: text;
+    }
+  }
   .clearfix {
     zoom: 1;
     &:after {
@@ -220,15 +229,6 @@ h1, h2, h3, h4, h5, h6 {
 
 textarea {
   width: 100%;
-  &:hover {
-    cursor: text;
-  }
-}
-
-input[type="text"] {
-  &:hover {
-    cursor: text;
-  }
 }
 
 .-question {
@@ -284,6 +284,9 @@ input[type="text"] {
   border: 1px solid @question-btn-text-color;
   &.sq-atm1d-hover {
     background-color: @question-btn-bg-color-hover;
+    &:active {
+      background-color: darken(@question-btn-bg-color-hover, 3);
+    }
   }
   &.sq-atm1d-disabled {
     background-color: @question-btn-bg-color-disabled;
@@ -291,6 +294,9 @@ input[type="text"] {
       background-color: @question-btn-bg-color-disabled;
       cursor: not-allowed;
     } 
+  }
+  &.sq-atm1d-selected {
+    background-color: @interface-button-selected;
   }
   @media @desktop {
     font-size: 1.4rem;
