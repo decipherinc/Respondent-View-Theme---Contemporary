@@ -30,6 +30,12 @@
 
 <div class="logo"><img src="https://www.decipherinc.com/n/assets/images/decipher-logo@2x.png" alt="Decipher Inc"></div>
 
+<div class="surveyError survey-error survey-page-error">
+  <div class="error">
+    <h3 class="survey-page-error-text">There were problems with some of the data you entered in the survey. You will find the questions with errors below; please follow the instructions attached to each question.</h3>
+  </div>
+</div>
+
 <div class="-question" id="q1">
   <h2 class="-question-text">Standard Grid</h2>
   <p class="-question-instructions">Select one for each row.</p>
@@ -131,8 +137,13 @@
   </table>
 </div>
 
-<div class="-question" id="q3">
+<div class="-question hasError" id="q3">
   <h2 class="-question-text">Column Groups and Separators</h2>
+  <div class="surveyError survey-error survey-q-error">
+    <div class="error">
+      <h3 class="survey-q-error-text">Please provide an answer</h3>
+    </div>
+  </div>
   <p class="-question-instructions">Set a price for each.</p>
   <table class="-grid -grid-text -grid-group-by-row -grid-auto-optimize">
     <tr class="-grid-row -grid-row-col-legend">
@@ -173,16 +184,16 @@
     <tr class="-grid-row -grid-row-odd -grid-row-controls">
       <td class="-grid-cell -grid-cell-legend -grid-cell-row-legend -grid-cell-row-legend-basic -grid-cell-row-legend-col-grouped">Bi-Focals/Tri-Focals</td>
       <td class="-grid-mobile-legend -grid-mobile-legend-group">GLASS</td>
-      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c0" id="q3-r2-c0"></span><label for="q3-r2-c0" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Glass Rx (All Index)</label></div></td>
+      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic hasError"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c0" id="q3-r2-c0"></span><label for="q3-r2-c0" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Glass Rx (All Index)</label></div></td>
       <td class="-grid-cell -grid-cell-seperator">&nbsp;</td>
       <td class="-grid-mobile-legend -grid-mobile-legend-group">PLASTIC Rx</td>
-      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c1" id="q3-r2-c1"></span><label for="q3-r2-c1" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Plastic (&lt;1.525)</label></div></td>
-      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c2" id="q3-r2-c2"></span><label for="q3-r2-c2" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Mid-Index (non-Trivex) (1.525-1.574)</label></div></td>
-      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c3" id="q3-r2-c3"></span><label for="q3-r2-c3" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Trivex (1.53)</label></div></td>
-      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c4" id="q3-r2-c4"></span><label for="q3-r2-c4" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">High Index (1.575-1.624)</label></div></td>
-      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c5" id="q3-r2-c5"></span><label for="q3-r2-c5" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Super High Index (1.625-1.674)</label></div></td>
-      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c6" id="q3-r2-c6"></span><label for="q3-r2-c6" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Ultra High Index (&gt;1.675)</label></div></td>
-      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c7" id="q3-r2-c7"></span><label for="q3-r2-c7" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Poly-carbs</label></div></td>
+      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic hasError"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c1" id="q3-r2-c1"></span><label for="q3-r2-c1" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Plastic (&lt;1.525)</label></div></td>
+      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic hasError"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c2" id="q3-r2-c2"></span><label for="q3-r2-c2" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Mid-Index (non-Trivex) (1.525-1.574)</label></div></td>
+      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic hasError"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c3" id="q3-r2-c3"></span><label for="q3-r2-c3" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Trivex (1.53)</label></div></td>
+      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic hasError"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c4" id="q3-r2-c4"></span><label for="q3-r2-c4" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">High Index (1.575-1.624)</label></div></td>
+      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic hasError"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c5" id="q3-r2-c5"></span><label for="q3-r2-c5" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Super High Index (1.625-1.674)</label></div></td>
+      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic hasError"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c6" id="q3-r2-c6"></span><label for="q3-r2-c6" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Ultra High Index (&gt;1.675)</label></div></td>
+      <td class="-grid-span_2 -grid-cell -grid-cell-control -grid-cell-control-basic hasError"><div class="-grid-text-control-wrapper"><span class="-grid-text-control-prefix">$ </span><span class="-grid-text-control-input"><input class="-grid-input -grid-input-text" type="text" name="q3-r2-c7" id="q3-r2-c7"></span><label for="q3-r2-c7" class="-grid-text-control-mobile-legend -grid-mobile-legend -grid-mobile-legend-basic -grid-label">Poly-carbs</label></div></td>
     </tr>
   </table>
 </div>
