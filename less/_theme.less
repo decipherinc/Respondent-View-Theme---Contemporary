@@ -1,355 +1,356 @@
 // Theme: Contemporary
 // Loading order: Respondent View > Grid & Question Types > Theme (YOU ARE HERE) > Survey Overrides
 
-// *** VARIABLES
-// ** Colors
-// must haves for DQs
-@primary-font-stack: Arial,"MS Trebuchet",sans-serif;
-@color-1: #EFEFEF;
-@color-2: #ffffff;
-@color-3: #454545;
-@color-4: #696a69;
-@color-5: #C5D600;
-@color-6: #2BBDB9;
-@color-7: #BA0000;
+// ************************************* Variables
+  // ******* Base Variables
+    // base colors
+    @bg-color: #EFEFEF;
+    @fg-color: white;
+    @text-color: #454545;
+    @border-color: contrast(@fg-color, lighten(@fg-color, 15), darken(@fg-color, 15), 53%);
+    
+    // interface buttons (next, finish, etc)
+    @interface-btn-color: #696a69;
+    @interface-btn-color-hover: lighten(@interface-btn-color, 10%);
+    @interface-btn-color-disabled: fadeout(@interface-btn-color, 88);
+    @interface-btn-text-color: @fg-color;
 
-@bg: @color-1;
-@fg: @color-2;
-@text: @color-3;
-@border: contrast(@fg, darken(@color-1, 10), lighten(@color-1, 15), 53%);
-@interface-button: @color-4;
-@interface-button-selected: @color-5;
-@question-button: @color-4;
-@question-button-selected: @color-6;
-@error: @color-7;
-// end must haves
+    // DQ buttons and FIR
+    @btn-color: #696a69;
+    @btn-color-hover: #C5D600;
+    @btn-color-selected: #2BBDB9;
+    @btn-color-disabled: fadeout(@btn-color, 88);
+    @btn-text-color: @fg-color;
 
-@bg-color: @bg;
-@fg-color: @fg;
-@border-color: @border;
+    // DQ like/neutral/dislike colors
+    @dq-like: #C5D600;
+    @dq-neutral: #00B4D6;
+    @dq-dislike: #BA0000;
 
-@progress-font-stack: @primary-font-stack;
-@progress-text-color: @text;
-@progress-stroke-color: contrast(@fg, darken(@border, 15), lighten(@border, 20), 53%);
-@progress-empty-bg-color: @fg;
-@progress-fill-bg-color: lighten(@progress-stroke-color, 15);
+    // errors
+    @error-bg-color: #BA0000;
+    @error-text-color: @fg-color;
 
-@question-text-color: @text;
-@question-font-stack: @primary-font-stack;
+    // font stack
+    @primary-font-stack: Arial,"MS Trebuchet",sans-serif;
 
-@comment-text-color: @text;
-@comment-font-stack: @primary-font-stack;
+    // font sizes
+    @mobile-font-size: 14px;
+    @desktop-font-size: 12px;
 
-@instruction-text-color: @text;
-@instruction-font-stack: @primary-font-stack;
+    // media query
+    @breakpoint: 768px;
+    @desktop: ~"(min-width: @{breakpoint})";
 
-@row-bg-color: contrast(@fg, @bg, lighten(@bg, 15), 53%);
-@row-bg-color-alt: contrast(@fg, @bg, lighten(@bg, 20), 53%);
+    // desktop view max width
+    @max-survey-content-width: 960px;
+  // ******* end base variables
 
-@answer-text-color: @text;
-@answer-font-stack: @primary-font-stack;
-@answer-bg-color-hover: lighten(@border, 5);
+  // ******* 'Advanced' Variables - These should be based on colors declared in the base variables.
+    // progress bar
+    @progress-stroke-color: contrast(@fg-color, darken(@border-color, 15), lighten(@border-color, 20), 53%);
+    @progress-empty-color: transparent;
+    @progress-fill-color: lighten(@progress-stroke-color, 15);
 
-@fir-base: contrast(@fg, darken(@border, 7), lighten(@border, 15), 53%);
-@fir-bg: @fg;
-@fir-hover: @color-5;
-@fir-selected: @color-6;
+    // rows
+    @row-bg-color: contrast(@fg-color, lighten(@fg-color, 10), darken(@fg-color, 7), 53%);
+    @row-bg-color-alt: contrast(@fg-color, lighten(@fg-color, 10), darken(@fg-color, 7), 53%);
 
-@question-btn-bg-color: @question-button;
-@question-btn-text-color: @fg-color;
-@question-btn-bg-color-hover: @interface-button-selected;
-@question-btn-bg-color-disabled: fadeout(@text, 88);
+    // answer cells
+    @answer-bg-color-hover: lighten(@border-color, 5);
 
-@interface-btn-bg-color: @interface-button;
-@interface-btn-text-color: @fg-color;
-@interface-btn-bg-color-hover: lighten(@interface-button, 10%);
-@interface-btn-bg-color-disabled: fadeout(@interface-button, 88);
+    // footer
+    @footer-text-color: @text-color;
+    @footer-text-color-hover: @text-color;
+  // ******* end advanced variables
 
-@error-text-color: contrast(@error, @text, @bg, 53%);
-@error-highlight-color: @error;
+  // ******* Contemporary theme specific
+    @contemporary-border-radius: 5px;
+    @contemporary-fg-shadow-amount: 15px;
+    @contemporary-fg-shadow-color: darken(@bg-color, 30);
+  // ******* end contemporary theme specific
 
-@footer-color: @text;
-@footer-color-hover: @text;
-@footer-font-stack: @primary-font-stack;
+// ************************************* end variables
 
-// font sizes
-@mobile-font-size: 14px;
-@desktop-font-size: 12px;
+// ************************************* General (responsive grid independent) styles
+  // ******* Reset (not theme specific)
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+        margin: 0;
+        padding: 0;
+        font-size: 100%;
+        border: 0;
+        outline: 0;
+    }
+    article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+        display: block;
+    }
+    th {
+      font-weight: normal;
+      text-align: left;
+    }
+    sub,sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+    }
+    sup {
+        top: -0.5em;
+        vertical-align: text-top;
+    }
+    sub {
+        bottom: -0.25em;
+        vertical-align: text-bottom;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    input[type="password"],
+    textarea {
+      &:hover {
+        cursor: text;
+      }
+    }
+    .-grid-cell-control, .-grid-multi-select tbody tr .-grid-cell-legend {
+      // !!! Must have for clickable cells with padding. Cells trigger the input.
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .clearfix {
+      zoom: 1;
+      &:after {
+        clear: both;
+      }
+      &:before, &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+      }
+    }
+  // ******* end reset
 
-// media query
-@breakpoint: 768px;
-@desktop: ~"(min-width: @{breakpoint})";
+  // ******* Theme specific general styles
+    html {
+      font-family: @primary-font-stack;
+      font-size: @mobile-font-size;
+      @media @desktop {
+        font-size: @desktop-font-size;
+      }
+    }
 
-// desktop view max width
-@max-survey-content-width: 960px;
+    body {
+      background-color: @fg-color; // on mobile, anything that overflows will need the fg color as bg
+      color: @text-color;
+      @media @desktop {
+        padding: 1rem 0;
+        background-color: @bg-color;
+      }
+    }
 
+    #-survey-content {
+      margin: 0 auto;
+      padding: 1em 5%;
+      background-color: @fg-color;
+      @media @desktop {
+        padding: 1em 2%;
+        max-width: @max-survey-content-width;
+        -webkit-border-radius: @contemporary-border-radius;
+        border-radius: @contemporary-border-radius;
+        -webkit-box-shadow: 0px 0px @contemporary-fg-shadow-amount 0px @contemporary-fg-shadow-color;
+        box-shadow: 0px 0px @contemporary-fg-shadow-amount 0px @contemporary-fg-shadow-color;
+      }
+    }
 
-// Contemporary theme specific
-@contemporary-border-radius: 5px;
-@contemporary-fg-shadow-amount: 15px;
-@contemporary-fg-shadow-color: darken(@bg, 30);
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 400;
+    }
 
-// ==============================================================
-// CONTEMPORARY THEME
-// *** Reset (not theme specific)
-  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
-      margin: 0;
-      padding: 0;
-      font-size: 100%;
-      border: 0;
+    #progress {
+      width: 100%;
+      height: 1em;
+      margin-bottom: 1em;
+      #progress-box {
+       background-color: @progress-empty-color;
+       border: 1px solid @progress-stroke-color;
+       width: 100%;
+       height: 1em;
+       max-width: 87%;
+      }
+      #progress-fill {
+       background-color: @progress-fill-color;
+       width: 0%;
+       height: 100%;
+       display: block;
+      }
+      #progress-text {
+       float: right;
+       line-height: 1em;
+       width: 13%;
+       text-align: left;
+       padding-left: 0.5em;
+      }
+      @media @desktop {
+        width: 25%;
+        float: right;
+      }
+    }
+
+    .logo {
+      width: 100%;
+      text-align: center;
+      img {
+        max-width: 70%;
+        height: auto;
+      }
+      @media @desktop {
+        text-align: left;
+        img {
+          max-width: 40%;
+        }
+      }
+    }
+
+    textarea {
+      width: 100%;
+    }
+
+    .-question {
+      margin-top: 1rem;
+      margin-bottom: 2.5rem;
+      .-question-text {
+        font-size: 1.4em;
+        line-height: 2em;
+      }
+      .-question-instructions {
+        font-size: 0.8em;
+        margin-left: 0.5em;
+        margin-bottom: 0.8rem;
+      }
+    }
+
+    .error {
+      color: @error-text-color;
+      font-weight: normal;
+      background-color: @error-bg-color;
+      padding: 1em 1em;
+      margin: 1em;
+      border-radius: @contemporary-border-radius;
+      .survey-page-error-text {
+        font-size: 1.4em;
+      }
+      .survey-q-error-text {
+        font-size: 1.2em;
+      }
+    }
+    .-grid .hasError {
+      background-color: @error-bg-color;
+      color: @error-text-color;
+    }
+
+    .button {
+      -webkit-appearance: none;
+      border-radius: 0;
+      cursor: pointer;
+      padding: 0.5em;
+    }
+
+    .dq-btn {
+      font-size: 1rem;
+      max-width: 100%; // min & max width needed for DQs (requested)
+      min-width: 4em;
+      text-align: center;
+      white-space: normal;
+      padding: 0.5em 1em;
+      background-color: @btn-color;
+      color: @btn-text-color;
+      border: 1px solid @btn-text-color;
       outline: 0;
-  }
-  article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
-      display: block;
-  }
-  th {
-    font-weight: normal;
-    text-align: left;
-  }
-  sub,sup {
-      font-size: 75%;
-      line-height: 0;
-      position: relative;
-  }
-  sup {
-      top: -0.5em;
-      vertical-align: text-top;
-  }
-  sub {
-      bottom: -0.25em;
-      vertical-align: text-bottom;
-  }
-  input[type="text"],
-  input[type="email"],
-  input[type="number"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="time"],
-  input[type="url"],
-  input[type="password"],
-  textarea {
-    &:hover {
-      cursor: text;
+      &.dq-btn-hover, &:hover, &:active, &:focus {
+        background-color: @btn-color-hover;
+        cursor: pointer;
+        &:active {
+          background-color: darken(@btn-color-hover, 3);
+        }
+      }
+      &.dq-btn-selected {
+        background-color: @btn-color-selected;
+        &:active {
+          background-color: @btn-color-selected;
+        }
+      }
+      &.dq-btn-disabled {
+        background-color: @btn-color-disabled;
+        &:hover, &:focus, &:active {
+          background-color: @btn-color-disabled;
+          cursor: not-allowed;
+        } 
+      }
+      @media @desktop {
+        font-size: 1.4rem;
+      }
     }
-  }
-  .clearfix {
-    zoom: 1;
-    &:after {
-      clear: both;
+
+    .survey-buttons {
+      text-align: center;
+      margin: 1em;
+      @media @desktop {
+        text-align: right;
+      }
     }
-    &:before, &:after {
-      content: "\0020";
-      display: block;
-      height: 0;
-      overflow: hidden;
+    .button-interface {
+      font-size: 1rem;
+      background-color: @interface-btn-color;
+      color: @interface-btn-text-color;
+      padding: 0.7em 1em;
+      border: 0;
+      box-shadow: 1px 1px 2px 0px fadeout(@interface-btn-color, 20);
+      &:hover, &:focus {
+        background-color: @interface-btn-color-hover;
+      }
+      &:active {
+        background-color: darken(@interface-btn-color-hover, 3);
+      }
+      input[disabled] {
+        background-color: @interface-btn-color-disabled;
+      }
     }
-  }
-// *** end reset
 
-// *** General Survey Elements
-html {
-  font-family: @primary-font-stack;
-  font-size: @mobile-font-size;
-  @media @desktop {
-    font-size: @desktop-font-size;
-  }
-}
-
-body {
-  background-color: @bg-color;
-  color: @text;
-  @media @desktop {
-    padding: 1rem 0;
-  }
-}
-
-#-survey-content {
-  margin: 0 auto;
-  padding: 1em 5%;
-  background-color: @fg-color;
-  @media @desktop {
-    padding: 1em 2%;
-    max-width: @max-survey-content-width;
-    -webkit-border-radius: @contemporary-border-radius;
-    border-radius: @contemporary-border-radius;
-    -webkit-box-shadow: 0px 0px @contemporary-fg-shadow-amount 0px @contemporary-fg-shadow-color;
-    box-shadow: 0px 0px @contemporary-fg-shadow-amount 0px @contemporary-fg-shadow-color;
-  }
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 400;
-}
-
-#progress {
-  width: 100%;
-  height: 1em;
-  margin-bottom: 1em;
-  #progress-box {
-   background-color: @progress-empty-bg-color;
-   border: 1px solid @progress-stroke-color;
-   width: 100%;
-   height: 1em;
-   max-width: 87%;
-  }
-  #progress-fill {
-   background-color: @progress-fill-bg-color;
-   width: 0%;
-   height: 100%;
-   display: block;
-  }
-  #progress-text {
-   color: @progress-text-color;
-   float: right;
-   line-height: 1em;
-   width: 13%;
-   text-align: left;
-   padding-left: 0.5em;
-  }
-  @media @desktop {
-    width: 25%;
-    float: right;
-  }
-}
-
-.logo {
-  width: 100%;
-  text-align: center;
-  img {
-    max-width: 70%;
-    height: auto;
-  }
-  @media @desktop {
-    text-align: left;
-    img {
-      max-width: 40%;
+    #footer {
+      text-align: center;
+      margin-top: 2em;
+      margin-bottom: 2em;
+      a {
+        color: @footer-text-color;
+        &:hover, &:focus, &:active {
+          color: @footer-text-color-hover;
+        }
+      }
     }
-  }
-}
+  // ******* end theme specific general styles
+// ************************************* // end general styles
 
-textarea {
-  width: 100%;
-}
-
-.-question {
-  margin-top: 1rem;
-  margin-bottom: 2.5rem;
-  .-question-text {
-    color: @question-text-color;
-    font-size: 1.4em;
-    line-height: 2em;
-  }
-  .-question-instructions {
-    font-family: @instruction-font-stack;
-    color: @instruction-text-color;
-    font-size: 0.8em;
-    margin-left: 0.5em;
-    margin-bottom: 0.8rem;
-  }
-}
-
-.error {
-  color: @error-text-color;
-  font-weight: normal;
-  background-color: @error-highlight-color;
-  padding: 1em 1em;
-  margin: 1em;
-  border-radius: @contemporary-border-radius;
-  .survey-page-error-text {
-    font-size: 1.4em;
-  }
-  .survey-q-error-text {
-    font-size: 1.2em;
-  }
-}
-.-grid .hasError {
-  background-color: @error-highlight-color;
-  color: @error-text-color;
-}
-
-.button {
-  -webkit-appearance: none;
-  border-radius: 0;
-  cursor: pointer;
-  padding: 0.5em;
-}
-
-.sq-atm1d-btn {
-  font-size: 1rem;
-  max-width: 100%;
-  white-space: normal;
-  padding: 0.5em 1em;
-  background-color: @question-btn-bg-color;
-  color: @question-btn-text-color;
-  border: 1px solid @question-btn-text-color;
-  &.sq-atm1d-hover {
-    background-color: @question-btn-bg-color-hover;
-    &:active {
-      background-color: darken(@question-btn-bg-color-hover, 3);
-    }
-  }
-  &.sq-atm1d-disabled {
-    background-color: @question-btn-bg-color-disabled;
-    &:hover, &:focus, &:active {
-      background-color: @question-btn-bg-color-disabled;
-      cursor: not-allowed;
-    } 
-  }
-  &.sq-atm1d-selected {
-    background-color: @interface-button-selected;
-  }
-  @media @desktop {
-    font-size: 1.4rem;
-  }
-}
-
-.survey-buttons {
-  text-align: center;
-  margin: 1em;
-  @media @desktop {
-    text-align: right;
-  }
-}
-.button-interface {
-  font-size: 1rem;
-  background-color: @interface-btn-bg-color;
-  color: @interface-btn-text-color;
-  padding: 0.7em 1em;
-  border: 0;
-  box-shadow: 1px 1px 2px 0px fadeout(@interface-btn-bg-color, 20);
-  &:hover, &:focus, &:active {
-    background-color: @interface-btn-bg-color-hover;
-  }
-  input[disabled] {
-    background-color: @interface-btn-bg-color-disabled;
-  }
-}
-
-#footer {
-  text-align: center;
-  margin-top: 2em;
-  margin-bottom: 2em;
-  a {
-    color: @text;
-    &:hover, &:focus, &:active {
-      color: @footer-color-hover;
-    }
-  }
-}
-// *** end general survey elements
-
-// *** 'Grid' question styling (prefix: -grid)
+// ************************************* Responsive 'Grid' question styling (prefix: -grid)
 // !!! Grid styling must be done seperately for mobile and desktop so that the appropriate styling is used if the user "forces desktop" or "forces mobile" on a question.
 
-  // ** Mobile-first grid styling
-    // Reset (not theme specific)
+  // ******* Mobile-first responsive grid question styling
+    // *** Reset (not theme specific)
       // Border Colors
       // !!! Below you can read about the method used for colapsing double borders between cells. Here you can set the border color easily.
       .-grid, .-grid-cell, .-grid-mobile-legend {
           border-color: @border-color;
       }
       // Border Colapsing
-      // !!! Because of the way we're building our tables, we can't just colapse borders. This adds borders to top only on each cell, then adds to the bottom of the entire grid.
+      // !!! Because of the way we're building our responsive tables, we can't just colapse borders. This adds top borders only to each cell, then adds the bottom border to the entire grid.
       .-grid {
           border-bottom-width: 1px;
           border-bottom-style: solid;
@@ -377,10 +378,9 @@ textarea {
       .-grid-supports-css-table .-grid-text-control-input .-grid-input-text {
         width: 100%;
       }
-    // end reset
+    // *** end reset
 
-    // Theme specific mobile-first grid styling
-
+    // *** Theme specific mobile-first grid styling
       .-grid-cell-legend, .-grid-mobile-legend-group {
         background-color: @row-bg-color;
         padding: 0.5rem;
@@ -396,7 +396,7 @@ textarea {
       }
       .-grid-cell-row-legend-group, .-grid-cell-row-legend-col-grouped {
         font-size: 1.4em;
-        background-color: contrast(@fg, darken(@row-bg-color, 6), lighten(@row-bg-color, 10), 53%);
+        background-color: contrast(@fg-color, darken(@row-bg-color, 6), lighten(@row-bg-color, 10), 53%);
       }
       .-grid-cell-control { // cells containing inputs
         padding: 0.7rem;
@@ -415,13 +415,13 @@ textarea {
         }
       }
 
-    // end theme mobile-first grid styling
-  // ** End mobile-first styling
+    // *** end theme mobile-first grid styling
+  // ******* End mobile-first styling
 
-  // ** Desktop grid styling
+  // ******* Desktop grid styling
     .-grid-desktop-css() { // The contents of this function copy into -grid-auto-optimize and -grid-force-desktop further down.
-      // Reset (not theme specific)
-      // !!! This resets border styling applied from mobile-first styling above, which compensates for lack of border colapsing on div tables.
+      // *** Reset (not theme specific)
+      // !!! This resets border styling applied from the mobile-first styling above, which compensates for lack of border colapsing on div tables.
         border-width: 0;
         .-grid-cell-legend, .-grid-cell-control, .-grid-mobile-legend-group {
             border-width: 1px;
@@ -430,10 +430,9 @@ textarea {
         .-grid-cell-seperator {
             border-top-width: 0;
         }
-      // end reset
-      
-      // Theme specific desktop grid styling
+      // *** end reset
 
+      // *** Theme specific desktop grid styling
         .-grid-cell-legend, .-grid-mobile-legend-group {
           background-color: @row-bg-color;
           padding: 0.4rem 0.5rem;
@@ -452,7 +451,7 @@ textarea {
         }
         .-grid-cell-row-legend-group, .-grid-cell-row-legend-col-grouped {
           font-size: 1.2em;
-          background-color: contrast(@fg, darken(@row-bg-color, 6), lighten(@row-bg-color, 10), 53%);
+          background-color: contrast(@fg-color, darken(@row-bg-color, 6), lighten(@row-bg-color, 10), 53%);
         }
         .-grid-cell-control { // cells containing inputs
           text-align: center;
@@ -468,60 +467,18 @@ textarea {
             background-color: @answer-bg-color-hover;
           }
         }
+      // *** end theme specific desktop grid styling
+    } 
+  // ******* end desktop grid styling
 
-
-
-      // end theme desktop grid styilng
-    } // end -grid-desktop-css
-
-    // ******** MUST HAVE (for forcing desktop / mobile)
-      .-grid-auto-optimize {
-        @media @desktop {
-          .-grid-desktop-css();
-        }
-      }
-      .-grid-force-desktop {
+  // ******** !!! MUST HAVE (for forcing desktop / mobile)
+    .-grid-auto-optimize {
+      @media @desktop {
         .-grid-desktop-css();
       }
-    // ********
-  // ** end desktop grid styling
-// *** end 'Grid' question styling
-
-// *** 'Form Image Replacement' (prefix: -fir)
-  // ** Mobile-first FIR formatting
-
-    .-grid-cell-control, .-grid-multi-select tbody tr .-grid-cell-legend {
-      // Must have for clickable cells with padding. Cells trigger the input.
-      &:hover {
-        cursor: pointer;
-      }
     }
-    .-fir-svg {
-      width: 20px;
-      height: 20px;
+    .-grid-force-desktop {
+      .-grid-desktop-css();
     }
-    .-fir-base {
-      fill: @fir-base;
-    }
-    .-fir-bg {
-      fill: @fir-bg;
-    }
-    .-fir-selected {
-      fill: transparent;
-    }
-    .-fir-svg-selected .-fir-selected {
-      fill: @fir-selected;
-    }
-  // ** End mobile-first FIR formatting
-
-  // ** Desktop-mode FIR formatting
-    .-grid-cell-control-hover .-fir-selected,
-    .-fir-hover .-fir-selected,
-    .-fir-focus .-fir-selected {
-      fill: @fir-hover;
-    }
-    .-fir-svg-selected .-fir-selected {
-      fill: @fir-selected;
-    }
-  // ** End desktop-mode FIR formatting
-// End FIR 
+  // ******** end must have
+// ************************************* end responsive 'grid' question styling

@@ -1,0 +1,37 @@
+.-fir-svg {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  vertical-align: middle;
+}
+.-fir-base {
+  fill: fadeout(@text-color, 70);
+}
+.-fir-bg {
+  fill: @fg-color;
+}
+.-fir-selected {
+  fill: transparent;
+}
+.-fir-svg-selected .-fir-selected {
+  fill: @btn-color-selected;
+}
+.-grid-input-radio, .-grid-input-checkbox {
+  opacity: 0;
+  position: absolute;
+  z-index: -10000;
+}
+
+@media @desktop {
+  .-grid-cell-control-hover .-fir-selected,
+  .-fir-hover .-fir-selected,
+  .-fir-focus .-fir-selected {
+    fill: @btn-color-hover;
+  }
+  .-fir-svg-selected .-fir-selected {
+    fill: @btn-color-selected;
+  }
+  .-fir-selected {
+    transition: all 100ms ease;
+  }
+}

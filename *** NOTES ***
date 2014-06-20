@@ -1,5 +1,30 @@
 On multi select, it doesn't apply bg color to input when hovering over label.
 
 
+    @breakpoint: 768px;
+    @desktop: ~"(min-width: @{breakpoint})";
+    ^Should @desktop be seperated from other variables so it's not available as an overridable option to users?
 
-Need to style disabled interface button
+
+
+
+Add variables for bad/nuetral/good
+
+
+buttos should be available in theme (.dq-btn, +-hover, etc)
+btn default, selected, hover, siabled
+add min-width, min-height
+text-align: center;
+
+
+
+
+
+
+
+
+NOTES FOR DQ TEAM:
+
+Use the variables.
+
+Use .dq-btn, .dq-btn-hover, .dq-btn-selected, .dq-btn-disabled
