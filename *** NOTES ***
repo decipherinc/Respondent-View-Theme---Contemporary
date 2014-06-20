@@ -1,4 +1,5 @@
 On multi select, it doesn't apply bg color to input when hovering over label.
+<<<<<<< HEAD
 
 
     @breakpoint: 768px;
@@ -27,4 +28,4 @@ NOTES FOR DQ TEAM:
 
 Use the variables.
 
-Use .dq-btn, .dq-btn-hover, .dq-btn-selected, .dq-btn-disabled
+use button classes
